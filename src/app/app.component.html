@@ -8,25 +8,25 @@
   <nz-form-label>Product Name</nz-form-label>
   <div class="preview-box">
     <p [dir]="dir">
-      {{inputValue|HtmlDecoderPipe}}
+      {{he.decode(preview)}}
     </p>
   </div>
+  <nz-form-label>Direction</nz-form-label>
   <nz-radio-group [(ngModel)]="dir">
     <label nz-radio *ngFor="let dir of directions" [nzValue]="dir">{{dir}}</label>
   </nz-radio-group>
   <br/>
   <nz-form-label>With Unicode</nz-form-label>
-  <textarea rows="6" nz-input (ngModelChange)="onChange(inputValue)" [(ngModel)]="inputValue" ></textarea>
+  <textarea rows="6" nz-input (ngModelChange)="onChange(inputValue)" [(ngModel)]="inputValue"></textarea>
   <br/>
 
-  <textarea rows="6" nz-input [ngModel]="inputValue|HtmlDecoderPipe"></textarea>
+  <!--  <textarea rows="6" nz-input [ngModel]="" ></textarea>-->
   <br/>
 
 </div>
 
 <!--  <nz-form-label>Preview</nz-form-label>-->
 <!--  <textarea rows="6" nz-input [ngModel]="inputValue | HtmlDecoderPipe"></textarea>-->
-
 
 
 <!--<form class="example-form">-->
