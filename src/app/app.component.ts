@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
   onChange(value: string) {
     // this.inputValue = _.cloneDeep(value);
     console.log('value', value)
-    console.log('he.decode(value)', he.decode(value))
     this.preview = _.cloneDeep(he.decode(value));
+    console.log('preview', he.decode(value))
 
   }
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   updateInputValue() {
-    this.inputValue = _.cloneDeep(this.selectedText);
+    this.inputValue = _.cloneDeep(he.decode(this.selectedText));
     this.preview = _.cloneDeep(this.inputValue);
   }
 }
