@@ -13,12 +13,14 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HttpClientModule } from '@angular/common/http';
+import { HtmlDecoderPipePipe } from './html-decoder.pipe';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HtmlDecoderPipePipe
   ],
   imports: [
     BrowserModule,

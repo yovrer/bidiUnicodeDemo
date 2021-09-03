@@ -1,13 +1,33 @@
 <div class="container">
+  <nz-select [(ngModel)]="selectedText" (ngModelChange)="updateInputValue()">
+    <nz-option *ngFor="let text of texts" [nzValue]="text" [nzLabel]="text| HtmlDecoderPipe"
+    ></nz-option>
+  </nz-select>
+
+
   <nz-form-label>Product Name</nz-form-label>
-  <textarea rows="6" nz-input [(ngModel)]="inputValue"></textarea>
+  <div class="preview-box">
+    <p [dir]="dir">
+      {{inputValue|HtmlDecoderPipe}}
+    </p>
+  </div>
+  <nz-radio-group [(ngModel)]="dir">
+    <label nz-radio *ngFor="let dir of directions" [nzValue]="dir">{{dir}}</label>
+  </nz-radio-group>
   <br/>
   <nz-form-label>With Unicode</nz-form-label>
-  <textarea rows="6" nz-input [(ngModel)]="inputValue"></textarea>
+  <textarea rows="6" nz-input (ngModelChange)="onChange(inputValue)" [(ngModel)]="inputValue" ></textarea>
   <br/>
-  <nz-form-label>Preview</nz-form-label>
-  <textarea rows="6" nz-input [(ngModel)]="inputValue"></textarea>
+
+  <textarea rows="6" nz-input [ngModel]="inputValue|HtmlDecoderPipe"></textarea>
+  <br/>
+
 </div>
+
+<!--  <nz-form-label>Preview</nz-form-label>-->
+<!--  <textarea rows="6" nz-input [ngModel]="inputValue | HtmlDecoderPipe"></textarea>-->
+
+
 
 <!--<form class="example-form">-->
 <!--  <mat-form-field appearance="fill" class="example-full-width">-->
