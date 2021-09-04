@@ -12,14 +12,22 @@
     </p>
   </div>
   <nz-form-label>Direction</nz-form-label>
+  <!--  Direction Radio Group -->
   <nz-radio-group [(ngModel)]="dir">
     <label nz-radio *ngFor="let dir of directions" [nzValue]="dir">{{dir}}</label>
   </nz-radio-group>
   <br/>
-  <nz-form-label>With Unicode</nz-form-label>
-  <textarea rows="6" nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange(inputValue)"></textarea>
+  <!--  Unicode Buttons -->
+<div class="unicode-buttons-group">
+  <button nz-button (click)="onUnicodeButtonClick(unicode)" nzType="default" *ngFor="let unicode of unicodeArr"  >
+  <!--          [nzTooltipTitle]="unicode.description" nzTooltipPlacement="top" nz-tooltip-->
+    {{unicode.abbreviation}}
+  </button>
+</div>
   <br/>
-
+  <nz-form-label>With Unicode</nz-form-label>
+  <textarea #textAreaElement (click)="onTextAreaClick(textAreaElement)" rows="6" nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange(inputValue)"></textarea>
+  <br/>
   <!--  <textarea rows="6" nz-input [ngModel]="" ></textarea>-->
   <br/>
 
