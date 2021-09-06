@@ -1,5 +1,7 @@
 export const textArr = [
   "The title is البحرين مصر الكويت! in Arabic.",
+  "The title is \u2067\u0627\u0644\u0628\u062d\u0631\u064a\u0646 \u0645\u0635\u0631 \u0627\u0644\u0643\u0648\u064a\u062a!\u2069\ in Arabic.",
+  "&#x0645;&#x0627; &#x0647;&#x0648; &#x202A;C++&#x202C;&#x200F;&#x061F; (Arabic Edition)",
   "The quick brown fox jumped over the lazy dog.",
   "Bahrain Egypt Kuwait!",
   "Bahrain &#x0645;&#x0635;&#x0631; Kuwait!",
@@ -7,7 +9,6 @@ export const textArr = [
   "Purple Pizza - 4 reviews",
   "יצה סגולה - 4 reviews",
   "&#x0627;&#x0644;&#x0628;&#x062D;&#x0631;&#x064A;&#x0646; &#x0645;&#x0635;&#x0631; &#x0627;&#x0644;&#x0643;&#x0648;&#x064A;&#x062A;!",
-  "The title is \u2067\u0627\u0644\u0628\u062d\u0631\u064a\u0646 \u0645\u0635\u0631 \u0627\u0644\u0643\u0648\u064a\u062a!\u2069\ in Arabic.",
   "The title is &#x0627;&#x0644;&#x0628;&#x062D;&#x0631;&#x064A;&#x0646; &#x0645;&#x0635;&#x0631; &#x0627;&#x0644;&#x0643;&#x0648;&#x064A;&#x062A;! in Arabic.",
   "The title is &#x202E;&#x0627;&#x0644;&#x0628;&#x062D;&#x0631;&#x064A;&#x0646; &#x0645;&#x0635;&#x0631; &#x0627;&#x0644;&#x0643;&#x0648;&#x064A;&#x062A;!&#x202C; in Arabic.",
   "The title is &#x0627;&#x0644;&#x0628;&#x062D;&#x0631;&#x064A;&#x0646; (123456) &#x0645;&#x0635;&#x0631; &#x0627;&#x0644;&#x0643;&#x0648;&#x064A;&#x062A;! in Arabic.",
