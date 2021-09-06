@@ -1,4 +1,5 @@
 export const textArr = [
+  "The title is البحرين مصر الكويت! in Arabic.",
   "The quick brown fox jumped over the lazy dog.",
   "Bahrain Egypt Kuwait!",
   "Bahrain &#x0645;&#x0635;&#x0631; Kuwait!",

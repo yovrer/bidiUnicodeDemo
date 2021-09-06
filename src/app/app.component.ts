@@ -18,30 +18,36 @@ export interface Unicode {
 export class AppComponent implements OnInit {
 
   texts = textArr;
-  selectedText = this.texts[7];
+  selectedText = this.texts[0];
   inputValue = '';
   preview = '';
-
   dir: Direction = 'ltr';
   unicodeArr: Unicode[] = [
-    {abbreviation: 'LRE', code: 'U+200A', description: 'Left to Right Embedding'},
-    {abbreviation: 'RLE', code: 'U+200B', description: 'Right to Left Embedding'},
-    {abbreviation: 'PDF', code: 'U+200C', description: 'Pop Directional Formatting (ending an embedding)'},
-    {abbreviation: 'LRI', code: 'U+2066', description: 'Left to Right Isolate'},
-    {abbreviation: 'RLI', code: 'U+2067', description: 'Right to Left Isolate'},
-    {abbreviation: 'FSI', code: 'U+2068', description: 'First Strong Isolate'},
-    {abbreviation: 'PDI', code: 'U+2069', description: 'Pop Directional Isolate (ending an isolate)'},
+    {abbreviation: 'LRE', code: '\u202A', description: 'Left to Right Embedding'},
+    {abbreviation: 'RLE', code: '\u202B', description: 'Right to Left Embedding'},
+    {abbreviation: 'PDF', code: '\u200C', description: 'Pop Directional Formatting (ending an embedding)'},
+    {abbreviation: 'LRI', code: '\u2066', description: 'Left to Right Isolate'},
+    {abbreviation: 'RLI', code: '\u2067', description: 'Right to Left Isolate'},
+    {abbreviation: 'FSI', code: '\u2068', description: 'First Strong Isolate'},
+    {abbreviation: 'PDI', code: '\u2069', description: 'Pop Directional Isolate (ending an isolate)'},
+    {abbreviation: 'RLM', code: '\u200F', description: 'Right to Left mark'},
+    {abbreviation: 'LRM', code: '\u200E', description: 'Left-to-right mark'},
+    {abbreviation: 'ALM', code: '\u061C', description: 'Arabic letter mark'},
+    //&rlm; &lrm; $alm;
   ];
   selectionStart: number = 0;
   directions = ['ltr', 'rtl', 'auto']
   he = he;
+  lastAddedUnicode = '';
 
   onChange(value: string) {
-    // this.inputValue = _.cloneDeep(value);
-    console.log('value', value)
     this.preview = _.cloneDeep(he.decode(value));
-    console.log('preview', he.decode(value))
+  }
 
+
+  UndoUnicode(lastAddedUnicode: string) {
+    this.inputValue = he.decode(he.encode(this.inputValue).replace(lastAddedUnicode, ""));
+    this.inputValue = _.cloneDeep(he.decode(this.inputValue));
   }
 
   ngOnInit(): void {
@@ -54,11 +60,17 @@ export class AppComponent implements OnInit {
 
   onUnicodeButtonClick(unicode: Unicode) {
     this.inputValue = this.insertAt(this.selectionStart, this.inputValue, unicode.code);
-    console.log(this.inputValue);
+    this.lastAddedUnicode = he.encode(unicode.code);
+  }
+
+  onResetButtonClick() {
+    this.updateInputValue();
+    console.log(he.encode(this.inputValue));
+
   }
 
   insertAt(selectionStart: number, inputValue: string, code: string): string {
-    return inputValue.slice(0, selectionStart) + code + inputValue.slice(selectionStart + Math.abs(0));
+    return inputValue.slice(0, selectionStart) + code + inputValue.slice(selectionStart);
   };
 
   updateInputValue() {
